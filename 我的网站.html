@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编程学习博客</title>
+    <link rel="stylesheet"> <!-- 引用外部CSS文件 -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* 确保粒子背景在其他内容的下面 */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative; /* 确保内容能层叠于粒子背景之上 */
+            z-index: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        main {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap; /* 允许换行 */
+        }
+
+        section {
+            flex: 3 1 300px; /* 设置灵活的基宽度 */
+            padding: 20px;
+        }
+
+        aside {
+            flex: 1 1 200px; /* 设置灵活的基宽度 */
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #fff; /* 上边框 */
+        }
+
+        footer h3 {
+            margin: 10px 0;
+            color: #FFDD44; /* 标题颜色 */
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .footer-links a {
+            color: #FFDD44; /* 链接颜色 */
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+            color: #FFD700; /* 悬停颜色 */
+        }
+
+        .post-list {
+            margin-top: 20px;
+            overflow-y: auto; /* 自动显示垂直滚动条 */
+            height: 350px; /* 设置固定高度以显示三篇文章 */
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #FFFFFF; /* 确保文本颜色为白色 */
+        }
+
+        .post-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            color: #FFFFFF; /* 确保每篇文章的文本颜色为白色 */
+        }
+
+        .post-item h3 {
+            color: #FFD700; /* 设置文章标题为金色 */
+            margin: 0; /* 去除默认外边距 */
+        }
+
+        .post-item p {
+            color: #FFFFFF; /* 设置文章内容颜色 */
+        }
+
+        /* 媒体查询，用于响应式设计 */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block; /* 在小屏幕上改为垂直排列 */
+                margin: 5px 0;
+            }
+
+            aside {
+                margin: 20px 0 0 0; /* 调整边距以适配小屏幕 */
+                width: 100%; /* 宽度设置为100% */
+            }
+
+            main {
+                flex-direction: column; /* 垂直排列 */
+            }
+        }
+
+        @media (max-width: 480px) {
+            section, aside {
+                padding: 10px; /* 减小内边距 */
+            }
+
+            footer {
+                font-size: 14px; /* 调整底部字体大小 */
+            }
+
+            footer h3 {
+                font-size: 16px; /* 调整底部标题大小 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div> <!-- 粒子背景 -->
+
+    <div class="content">
+        <header>
+            <h1>编程学习之旅</h1>
+            <p>探索编程的乐趣与技巧</p>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#articles">文章</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="articles">
+                <h2>最新文章</h2>
+                <div class="post-list" id="post-list">
+                    <div class="post-item" data-title="方便快捷的访问网站链接">
+                        <h3>方便快捷的访问网站链接</h3>
+                        <p>在这个信息持续不断增长的时代，互联网已成为我们日常生活中不可或缺的一部分。
+                            许多人希望能够快速而便利地访问各种网站，以便获取信息、进行在线学习或购物
+                            等。本文将介绍几种方法和工具，旨在帮助用户更高效地访问他们需要的网站链接。
+                        </p>
+                        <p>我们将探讨一些实用的浏览器扩展、书签管理技巧，以及利用搜索引擎优化搜索效率
+                            的策略。同时，文章还将分享如何通过短链接服务，简化常用网站地址的访问。通过
+                            这些方法，用户可以节省时间，提升在线浏览体验，更加便捷地获取所需信息。
+                        </p>
+                        <a href="网站链接.html">点击访问</a>
+                    </div>
+                    <div class="post-item" data-title="文章标题 2">
+                        <h3>文章标题 2</h3>
+                        <p>这是文章 2 的摘要...</p>
+                        <a href="#">阅读全文</a>
+                    </div>
+                    <div class="post-item" data-title="文章标题 3">
+                        <h3>文章标题 3</h3>
+                        <p>这是文章 3 的摘要...</p>
+                        <a href="#">阅读全文</a>
+                    </div>
+                    <div class="post-item" data-title="文章标题 4">
+                        <h3>文章标题 4</h3>
+                        <p>这是文章 4 的摘要...</p>
+                        <a href="#">阅读全文</a>
+                    </div>
+                </div>
+            </section>
+
+            <aside>
+                <h3>侧边栏</h3>
+                <form id="search-form" onsubmit="return false;">
+                    <input type="text" id="search-input" placeholder="搜索文章..." oninput="searchArticles()">
+                    <button type="submit">搜索</button>
+                </form>
+                <h4>分类</h4>
+                <ul>
+                    <li><a href="#">前端开发</a></li>
+                    <li><a href="#">后端开发</a></li>
+                    <li><a href="#">编程语言</a></li>
+                </ul>
+                <h4>热门文章</h4>
+                <ul>
+                    <li><a href="#">热门文章 1</a></li>
+                    <li><a href="#">热门文章 2</a></li>
+                </ul>
+            </aside>
+        </main>
+
+        <footer>
+            <h3 id="about">关于我</h3>
+            <p>我是一个热爱编程的学习者，喜欢探索新技术和分享学习经验。</p>
+            <h3 id="contact">联系我</h3>
+            <p>我的谷歌邮箱：<strong>chunyugu020@gmail.com</strong></p>
+            <p class="footer-links">© 2023 编程学习博客 | <a href="#contact">联系我</a></p>
+        </footer>
+    </div>
+
+    <!-- 引入 particles.js 和配置 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        function searchArticles() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const posts = document.getElementsByClassName('post-item');
+
+            Array.from(posts).forEach(post => {
+                const title = post.getAttribute('data-title').toLowerCase();
+
+                // 检查标题中是否包含搜索框中的任意字符
+                const matches = input.split('').every(char => title.includes(char));
+
+                if (matches) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

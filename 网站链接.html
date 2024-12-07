@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网站链接集合</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000428, #004e92);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* 垂直排列内容和底部 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            position: relative; /* 为伪元素定位 */
+            overflow: hidden; /* 防止内容溢出 */
+        }
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* 确保粒子在内容下方 */
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%; /* 在手机上使用百分比宽度 */
+            z-index: 2; /* 确保内容在上层 */
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        .scroll-frame { /* 内部滑动框 */
+            overflow-y: auto; /* 启用垂直滚动 */
+            max-height: 300px; /* 设置最大高度 */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        footer {
+            margin-top: 20px; /* 底部间距 */
+            text-align: center;
+            color: #fff;
+            z-index: 2; /* 确保底部在上层 */
+        }
+        /* 添加左侧和右侧的装饰元素 */
+        .side-decor {
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1; /* 让侧边装饰在内容下面 */
+        }
+        .side-decor.left {
+            left: 0;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .side-decor.right {
+            right: 0;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        @media (max-width: 768px) { /* 针对平板和手机的样式 */
+            .container {
+                padding: 20px; /* 减少内边距 */
+            }
+            h1 {
+                font-size: 24px; /* 调整标题大小 */
+            }
+            li {
+                padding: 10px; /* 减小列表项的内边距 */
+            }
+            footer {
+                font-size: 14px; /* 调整底部字体大小 */
+            }
+        }
+        @media (max-width: 480px) { /* 针对手机的样式 */
+            h1 {
+                font-size: 20px; /* 调整标题大小 */
+            }
+            .side-decor {
+                display: none; /* 隐藏左右侧边装饰 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particle-container" id="particles-js"></div> <!-- 粒子特效容器 -->
+    <div class="side-decor left"></div> <!-- 左侧装饰 -->
+    <div class="side-decor right"></div> <!-- 右侧装饰 -->
+
+    <div class="container">
+        <h1>我的网站链接集合</h1>
+        <div class="scroll-frame"> <!-- 仅保留内部滑动框 -->
+            <ul>
+                <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                <li><a href="https://www.wikipedia.org" target="_blank">维基百科</a></li>
+                <li><a href="https://www.github.com" target="_blank">GitHub</a></li>
+                <li><a href="https://www.xdclass.net" target="_blank">小滴课堂</a></li>
+                <li><a href="https://www.example1.com" target="_blank">示例网站 1</a></li>
+                <li><a href="https://www.example2.com" target="_blank">示例网站 2</a></li>
+                <li><a href="https://www.example3.com" target="_blank">示例网站 3</a></li>
+                <li><a href="https://www.example4.com" target="_blank">示例网站 4</a></li>
+                <li><a href="https://www.example5.com" target="_blank">示例网站 5</a></li>
+                <li><a href="https://www.example6.com" target="_blank">示例网站 6</a></li>
+                <!-- 在这里添加更多链接 -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 我的链接集合. 保留所有权利.</p>
+    </footer>
+
+    <!-- 引入 particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
